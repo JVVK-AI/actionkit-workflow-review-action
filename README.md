@@ -3,7 +3,7 @@
 A tiny, dependency-free GitHub Action that reads one workflow YAML file and writes a Markdown review report.
 
 ```yaml
-- uses: JVVK-AI/actionkit-workflow-review-action@v1.0.1
+- uses: JVVK-AI/actionkit-workflow-review-action@v1.0.2
   with:
     workflow-path: .github/workflows/ci.yml
 ```
