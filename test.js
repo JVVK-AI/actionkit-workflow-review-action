@@ -1,6 +1,6 @@
 'use strict';
 const assert = require('node:assert/strict');
-const { review, markdown } = require('../dist/index.js');
+const { review, markdown } = require('./dist/index.js');
 const sample = `name: CI
 on: [push]
 permissions: write-all

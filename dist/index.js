@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function envInput(name, fallback) {
-  return process.env[`INPUT_${name.replace(/ /g, '_').toUpperCase()}`] || fallback;
+  return process.env[`INPUT_${name.replace(/[- ]/g, '_').toUpperCase()}`] || fallback;
 }
 
 function finding(level, message, line) {
