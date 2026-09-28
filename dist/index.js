@@ -4,7 +4,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 function envInput(name, fallback) {
-  return process.env[`INPUT_${name.replace(/[- ]/g, '_').toUpperCase()}`] || fallback;
+  const rawName = name.replace(/ /g, '_').toUpperCase();
+  const normalizedName = rawName.replace(/-/g, '_');
+  return process.env[`INPUT_${rawName}`] || process.env[`INPUT_${normalizedName}`] || fallback;
 }
 
 function finding(level, message, line) {
@@ -64,5 +66,5 @@ function main() {
   console.log(`ActionKit reviewed ${workflowPath}: ${findings.length} prompt(s). Report: ${reportPath}`);
 }
 
-module.exports = { review, markdown, main };
+module.exports = { envInput, review, markdown, main };
 if (require.main === module) main();
