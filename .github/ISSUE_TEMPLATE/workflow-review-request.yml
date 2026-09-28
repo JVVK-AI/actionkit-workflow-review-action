@@ -1,0 +1,31 @@
+name: Request a scoped workflow review
+description: Ask for a separately scoped GitHub Actions review or handoff package.
+title: "Workflow review request: "
+labels: ["service-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe a bounded workflow-review need. Initial scope, acceptance criteria, and price are agreed before work begins. The review uses an AI-assisted workflow and is a configuration aid, not a security certification or deployment approval. Do not include credentials, tokens, private repository links, personal data, or confidential source code.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What decision, report, or improvement should this review help with?
+      placeholder: "Example: review one public CI workflow and provide a Markdown handoff listing timeout, permission, and concurrency questions."
+    validations:
+      required: true
+  - type: textarea
+    id: public-context
+    attributes:
+      label: Public context
+      description: Link a public workflow or summarize its non-sensitive structure. Do not share access details.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria and timing
+      description: What would make the first bounded deliverable useful, and when is it needed?
+    validations:
+      required: true

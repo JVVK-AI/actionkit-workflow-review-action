@@ -12,6 +12,8 @@ The report lists prompts for a human reviewer, including broad permissions, floa
 
 For a browser review, use [ActionKit](https://actionkit-workflow-review.jvvkmusic.chatgpt.site). The optional **9 USDC** local kit adds repeatable batch reports, a decision guide, and handoff templates; it has no subscription and does not edit workflows automatically.
 
+Need a bounded review for a public workflow? [Request a separately scoped review](https://github.com/JVVK-AI/actionkit-workflow-review-action/issues/new?template=workflow-review-request.yml). Scope, acceptance criteria, and price are agreed before work begins; do not include credentials, private links, or confidential code.
+
 ## Output
 
 By default the report is written to `actionkit-workflow-review.md` and included in the GitHub Actions job summary. Set `report-path` to choose another location. The `finding-count` action output is the number of review prompts written to the report.
