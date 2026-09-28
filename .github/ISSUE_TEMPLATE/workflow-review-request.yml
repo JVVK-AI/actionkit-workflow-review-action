@@ -1,7 +1,6 @@
 name: Request a scoped workflow review
 description: Ask for a separately scoped GitHub Actions review or handoff package.
 title: "Workflow review request: "
-labels: ["service-request"]
 body:
   - type: markdown
     attributes:
