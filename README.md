@@ -10,7 +10,7 @@ A tiny, dependency-free GitHub Action that reads one workflow YAML file and writ
 
 The report lists prompts for a human reviewer, including broad permissions, floating action references, `npm install`, missing job timeout limits, and missing concurrency. It does not modify, execute, upload, or prove the safety of a workflow.
 
-For a browser review and an optional offline local kit with batch reports and handoff templates, see [ActionKit](https://actionkit-workflow-review.jvvkmusic.chatgpt.site).
+For a browser review, use [ActionKit](https://actionkit-workflow-review.jvvkmusic.chatgpt.site). The optional **9 USDC** local kit adds repeatable batch reports, a decision guide, and handoff templates; it has no subscription and does not edit workflows automatically.
 
 ## Output
 
