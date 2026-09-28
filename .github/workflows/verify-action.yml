@@ -1,0 +1,25 @@
+name: Verify action
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          workflow-path: fixtures/review-target.yml
+          report-path: actionkit-workflow-review.md
+      - name: Verify report
+        run: |
+          test -f actionkit-workflow-review.md
+          grep -q "permissions are write-all" actionkit-workflow-review.md
+          grep -q "npm ci" actionkit-workflow-review.md

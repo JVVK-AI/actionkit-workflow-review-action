@@ -19,3 +19,7 @@ By default the report is written to `actionkit-workflow-review.md`. Set `report-
 ## Boundaries
 
 This is a lightweight static text review, not a security audit, policy engine, or deployment approval.
+
+## Verification
+
+This repository includes a GitHub Actions workflow that runs the action against a deliberately flawed fixture and checks the generated report. The workflow is a product check; it does not review or approve any external workflow.

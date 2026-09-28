@@ -1,0 +1,9 @@
+name: fixture
+on: [push]
+permissions: write-all
+jobs:
+  review-target:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - run: npm install
