@@ -14,5 +14,6 @@ jobs:
 const findings = review(sample);
 assert.equal(findings.length, 5);
 assert.match(markdown('ci.yml', findings), /write-all/);
+assert.match(markdown('ci.yml', findings), /npm ci/);
 assert.match(markdown('ci.yml', findings), /ActionKit workflow review/);
 console.log('review-action tests passed');

@@ -40,7 +40,7 @@ function review(text) {
     if (/^\s+permissions\s*:\s*write-all\s*$/.test(line)) findings.push(finding('review', 'A job uses permissions: write-all; scope it to the minimum needed.', lineNo));
     const uses = line.match(/uses:\s*([^\s#]+)/);
     if (uses && /@(?:main|master|latest)$/.test(uses[1])) findings.push(finding('review', `Action reference \`${uses[1]}\` floats on a moving branch or tag.`, lineNo));
-    if (/^\s*run:\s*npm install\b/.test(line)) findings.push(finding('review', 'Use npm ci when a lockfile is present for a reproducible install.', lineNo));
+    if (/^\s*(?:-\s*)?run:\s*npm install\b/.test(line)) findings.push(finding('review', 'Use npm ci when a lockfile is present for a reproducible install.', lineNo));
   });
   finishJob();
   return findings;
