@@ -14,7 +14,7 @@ For a browser review, use [ActionKit](https://actionkit-workflow-review.jvvkmusi
 
 ## Output
 
-By default the report is written to `actionkit-workflow-review.md`. Set `report-path` to choose another location.
+By default the report is written to `actionkit-workflow-review.md` and included in the GitHub Actions job summary. Set `report-path` to choose another location. The `finding-count` action output is the number of review prompts written to the report.
 
 ## Boundaries
 

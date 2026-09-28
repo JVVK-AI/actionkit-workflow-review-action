@@ -13,6 +13,9 @@ inputs:
     description: File path for the generated Markdown report.
     required: false
     default: actionkit-workflow-review.md
+outputs:
+  finding-count:
+    description: Number of review prompts written to the report.
 runs:
   using: node20
   main: dist/index.js

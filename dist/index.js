@@ -55,6 +55,11 @@ function markdown(source, findings) {
   return `# ActionKit workflow review\n\nSource: \`${source}\`\n\n| Level | Line | Review prompt |\n| --- | ---: | --- |\n${rows}\n\nThis report is a static review aid. It is not a security audit or deployment approval.\n`;
 }
 
+function publishResult(report, findingCount) {
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${report}\n`);
+  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `finding-count=${findingCount}\n`);
+}
+
 function main() {
   const workflowPath = envInput('workflow-path', '.github/workflows/ci.yml');
   const reportPath = envInput('report-path', 'actionkit-workflow-review.md');
@@ -62,9 +67,11 @@ function main() {
   const findings = review(fs.readFileSync(workflowPath, 'utf8'));
   const target = path.resolve(reportPath);
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, markdown(workflowPath, findings));
+  const report = markdown(workflowPath, findings);
+  fs.writeFileSync(target, report);
+  publishResult(report, findings.length);
   console.log(`ActionKit reviewed ${workflowPath}: ${findings.length} prompt(s). Report: ${reportPath}`);
 }
 
-module.exports = { envInput, review, markdown, main };
+module.exports = { envInput, review, markdown, publishResult, main };
 if (require.main === module) main();
