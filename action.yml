@@ -1,0 +1,18 @@
+name: ActionKit workflow review
+description: Review a GitHub Actions workflow for common human-review prompts.
+author: JVVK-AI
+branding:
+  icon: check-circle
+  color: purple
+inputs:
+  workflow-path:
+    description: Path to a GitHub Actions workflow YAML file.
+    required: false
+    default: .github/workflows/ci.yml
+  report-path:
+    description: File path for the generated Markdown report.
+    required: false
+    default: actionkit-workflow-review.md
+runs:
+  using: node20
+  main: dist/index.js
